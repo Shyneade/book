@@ -1,0 +1,31 @@
+{%extends "user/layout.html"%}
+
+<div class="content" style="background-color: white;padding:3em">
+    <h5>Please complete this form to donate to BookWorm</h5>
+    <form action="" method="post">
+        <div class="mb-3">
+            <input type="text" name="fullname" value="
+            {% if userdeets%}
+                {{userdeets.user_fullname}}
+                    {%endif%}" placeholder="Your name">
+        </div>
+        <div class="mb-3">
+            <input type="text" name="email"  value="
+            {% if userdeets%}
+                {{userdeets.user_email}}
+                    {%endif%}" placeholder="Your email">
+        </div>
+        <div class="mb-3">
+            <input type="text" name="amount" placeholder="Amount">
+        </div>
+        <div class="mb-3">
+            <input type="hidden" value="{{csrf_token()}}" name="csrf_token">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Continue</button>
+        </div>
+
+    </form>
+
+</div>
+ 
